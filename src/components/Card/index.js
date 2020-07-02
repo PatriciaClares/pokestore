@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { specficPokemon } from '../../services/api'
 import * as S from "./styled";
 
-export default function Card({pokemon}) {
+export default function Card({pokemon, pokemonCart}) {
 
     const [currentPokemon, setCurrentPokemon] = useState([])
     const [pokemonURLImage, setPokemonURLImage] = useState('');
@@ -10,7 +10,7 @@ export default function Card({pokemon}) {
     useEffect(() => {
         async function loadPokemon() {
                 const {name, order, sprites} =  await specficPokemon(pokemon.name).then(result => result)
-                setCurrentPokemon({name,order})
+                setCurrentPokemon({name,order, sprites})
                 setPokemonURLImage(sprites.front_shiny);
         }
             loadPokemon()
@@ -25,7 +25,7 @@ export default function Card({pokemon}) {
                             <S.price>R$ {currentPokemon.order}</S.price>
                             <S.name>{currentPokemon.name}</S.name>
                         </S.cardDescription>
-                        <S.cardButton>Adicionar <S.cartIcon /></S.cardButton> 
+                        <S.cardButton onClick={() => pokemonCart(currentPokemon)}>Adicionar <S.cartIcon /></S.cardButton> 
                     </S.cardBody>
                 </S.divCard>
            </>

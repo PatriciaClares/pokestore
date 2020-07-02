@@ -4,10 +4,10 @@ import { MdAddShoppingCart } from 'react-icons/md'
 export const divCard = styled.div`
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
-    margin: 10px 10px 20px 10px;
+    margin: 0px 10px 20px 10px;
+    width:150px
 `
 export const imgCard = styled.img`
-    width: 100%;
 `
 
 export const cardDescription = styled.div`
@@ -27,14 +27,16 @@ export const cardBody = styled.div`
 `
 
 export const cartIcon = styled(MdAddShoppingCart)`
-    width:25px;
+    width:30px;
 `
 
 export const cardButton = styled.button`
+    width:100%;
     display:flex;
     align-items: center;
+    justify-content:center;
     padding:5px 3px;
-    background-color: blue;
+    background-color: #040404;
     border: none;
     color: white;
     cursor: pointer;
