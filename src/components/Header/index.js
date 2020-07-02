@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import * as S from "./styled";
 import { FaSearch } from "react-icons/fa";
-import { FiGithub } from "react-icons/fi";
 import { specficPokemon } from '../../services/api'
 
 export default function Header({pokemonSearchName}) {
@@ -15,12 +14,12 @@ export default function Header({pokemonSearchName}) {
   }
   return (
     <S.Header>
-      <div style={{display:'flex'}}>
-        <S.inputName value={pokemonName} onChange={e => setPokemonName(e.target.value)} placeholder="Pesquise pelo nome "></S.inputName>
+      <S.divSearch>
+        <S.inputName value={pokemonName} onChange={e => setPokemonName(e.target.value)} placeholder="Pesquise pelo nome"></S.inputName>
         <S.buttonSearch type="button" onClick={handlePesquisa}><FaSearch/></S.buttonSearch>
-      </div>
+      </S.divSearch>
 
-      <a href="https://github.com/PatriciaClares/pokestore" rel="noopener noreferrer" target="_blank"><FiGithub style={{width:'40px', height:'40px', border:'1px solid black', borderRadius:'25px', padding:'5px', color:'black'}} /></a>
+      <a href="https://github.com/PatriciaClares/pokestore" rel="noopener noreferrer" target="_blank"><S.fiGithub /></a>
     </S.Header>
   );
 }
