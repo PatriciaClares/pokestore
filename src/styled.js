@@ -3,8 +3,25 @@ import { FaArrowUp } from 'react-icons/fa'
 
 export const divMap = styled.div`
     display:flex;
+    flex-wrap: wrap-reverse;
+    justify-content: space-around;
+    margin: 10px 0 ;
+    align-items: end;
+`
+
+export const divCards = styled.div`
+    display:flex;
     flex-wrap:wrap;
-    justify-content:center
+    justify-content:center;
+    max-width: 750px;
+    
+`
+
+export const shoppingCart = styled.div`
+    overflow-Y: scroll;
+    scrollbar-color: yellow;
+    max-width:300px;
+    max-height:150px;
 `
 export const button = styled.button`
     width:100px;
