@@ -13,6 +13,7 @@ export const title = styled.h2`
 export const listShoppingCart = styled.div`
     overflow-Y: scroll;
     scrollbar-color: yellow;
+    min-height: 200px;
     max-width: 300px;
     max-height: 150px;
 `

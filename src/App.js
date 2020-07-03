@@ -33,9 +33,9 @@ export default function App() {
         </S.divCards>
        
         <ShoppingCart 
+          pokemonCart={savedPokemonCart()}
           endShop={() => endShop()} 
-          pokemonCart={pokemonCart} 
-          totalPrice={totalPrice} 
+          totalPrice={savedTotalPrice()} 
         />
       </S.divMap>
 
@@ -73,7 +73,7 @@ export default function App() {
 
   function endShop() {
     localStorage.clear()
-    setPokemonCart([]);
+    setPokemonCart([])
     setTotalPrice(0);
     
     setShowModalState(true)
@@ -84,11 +84,23 @@ export default function App() {
   }
 
   function sumPriceTotal(value){
-    setTotalPrice(value + totalPrice)
+    localStorage.setItem('totalPrice', (parseInt(totalPrice) + value))
+    setTotalPrice(savedTotalPrice())
+  }
+
+  function savedTotalPrice(){
+    return localStorage.getItem('totalPrice') 
+
   }
 
   function savePokemon(pokemon){
-    setPokemonCart(pokemonCart.concat(pokemon))
-    localStorage.setItem('pokemons', JSON.stringify(pokemonCart))    
+    localStorage.setItem('pokemons', JSON.stringify(pokemonCart.concat(pokemon)))
+    setPokemonCart(savedPokemonCart())
   }
+
+  function savedPokemonCart(){
+    return  JSON.parse(localStorage.getItem('pokemons'))
+  }
+
+
 }
