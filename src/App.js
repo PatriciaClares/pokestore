@@ -59,9 +59,8 @@ export default function App() {
   function renderCards(pokemon) {
     return pokemon.map((pokemonCurrent, index) => {
       return <Card pokemonCart={(pokemon) => { 
-        localStorage.setItem('pokemons', JSON.stringify(pokemonCart.concat(pokemon)))
-        setTotalPrice(pokemon.order + totalPrice)
-        setPokemonCart(JSON.parse(localStorage.getItem('pokemons')))
+        sumPriceTotal(pokemon.order)
+        savePokemon(pokemon)    
     }} 
         pokemon={pokemonCurrent} key={index} />;
     });
@@ -82,5 +81,14 @@ export default function App() {
 
   function hideModal(){
     setShowModalState(false);
+  }
+
+  function sumPriceTotal(value){
+    setTotalPrice(value + totalPrice)
+  }
+
+  function savePokemon(pokemon){
+    setPokemonCart(pokemonCart.concat(pokemon))
+    localStorage.setItem('pokemons', JSON.stringify(pokemonCart))    
   }
 }
