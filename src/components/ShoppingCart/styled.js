@@ -1,9 +1,22 @@
 import styled from 'styled-components'
+import { MdClose } from 'react-icons/md'
 
 export const containerCart = styled.div`
     border: 1px solid #040404;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    border-radius: 10px;
+`
+
+export const p = styled.p`
+    display:flex;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    justify-content: center;
 `
 export const title = styled.h2`
+    border-radius: 5px;
     background-color: #e64c3c; 
     display: flex;
     justify-content: center;
@@ -13,8 +26,7 @@ export const title = styled.h2`
 export const listShoppingCart = styled.div`
     overflow-Y: scroll;
     scrollbar-color: yellow;
-    min-height: 200px;
-    max-width: 300px;
+    min-width: 250px;
     max-height: 150px;
 `
 export const listItem = styled.div`
@@ -28,6 +40,12 @@ export const info = styled.div`
     display: flex;
     align-items: center;
 `
+export const closeIcon = styled(MdClose)`
+    color: white;
+    background-color: #e64c3c;
+    cursor: pointer;
+`
+
 export const img = styled.img`
     width: 50px;
 `
@@ -38,6 +56,7 @@ export const total = styled.div`
     padding: 5px;
 `
 export const button = styled.button`
+    border-radius: 5px;
     display: flex;
     width: 100%;
     justify-content: center;
@@ -45,8 +64,3 @@ export const button = styled.button`
     background-color: #040404;
     color: white;
 `
-
-/*
-export const total = styled.img`
-`
-*/

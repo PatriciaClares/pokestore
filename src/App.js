@@ -33,6 +33,7 @@ export default function App() {
         </S.divCards>
        
         <ShoppingCart 
+          removeStatePokemon={(pokemon, price) => removeStatePokemon(pokemon, price)}
           pokemonCart={savedPokemonCart()}
           endShop={() => endShop()} 
           totalPrice={savedTotalPrice()} 
@@ -88,6 +89,11 @@ export default function App() {
     setTotalPrice(savedTotalPrice())
   }
 
+  function subTotalPrice(value){
+    localStorage.setItem('totalPrice', totalPrice - value)
+    setTotalPrice(savedTotalPrice())
+  }
+
   function savedTotalPrice(){
     return localStorage.getItem('totalPrice') 
 
@@ -102,5 +108,12 @@ export default function App() {
     return  JSON.parse(localStorage.getItem('pokemons'))
   }
 
+  function removeStatePokemon(pokemon, price){
+    
+    localStorage.setItem('pokemons', JSON.stringify(pokemon))
+    setPokemonCart(savedPokemonCart())
+    
+    subTotalPrice(price)
+  }
 
 }

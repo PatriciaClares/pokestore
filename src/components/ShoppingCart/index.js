@@ -1,7 +1,7 @@
 import React from "react";
 import * as S from "./styled.js";
 
-export default function ShoppingCart({pokemonCart, totalPrice, endShop }) {
+export default function ShoppingCart({removeStatePokemon, pokemonCart, totalPrice, endShop }) {
 
   return (
     <S.containerCart>
@@ -17,9 +17,10 @@ export default function ShoppingCart({pokemonCart, totalPrice, endShop }) {
                     
                 </S.info>
               <p>R$ {pokemonCurrent.order}</p>
+              <S.closeIcon onClick={() => removePokemon(pokemonCurrent)}/>
             </S.listItem>
           );
-        }): <p>Carrinho vazio :(</p>}
+        }): <S.p>Carrinho vazio :(</S.p>}
       </S.listShoppingCart>
       <S.total>
             <h2>Total:</h2>
@@ -28,4 +29,9 @@ export default function ShoppingCart({pokemonCart, totalPrice, endShop }) {
       <S.button onClick={() => endShop()}>FINALIZAR COMPRA</S.button>
     </S.containerCart>
   );
+
+  function removePokemon(pokemon){
+    pokemonCart.splice(pokemonCart.indexOf(pokemon),1)
+    removeStatePokemon(pokemonCart, pokemon.order)
+  }
 }
