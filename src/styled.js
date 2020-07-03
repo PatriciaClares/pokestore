@@ -6,9 +6,6 @@ export const divMap = styled.div`
     justify-content: center;
     margin: 10px 0 ;
     align-items: end;
-    @media(min-width:1125px){
-        justify-content: flex-start
-    }
 
 `
 
