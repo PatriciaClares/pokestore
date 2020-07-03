@@ -3,8 +3,9 @@ import { allPokemon } from "./services/api";
 import Header from "./components/Header";
 import * as S from "./styled";
 import Card from "./components/Card";
-import ShoppingCart from './components/shoppingCart'
+import ShoppingCart from './components/ShoppingCart'
 import Modal from './components/Modal'
+import ScrollTop from './components/ScrollTop'
 
 import "./style.css";
 
@@ -13,7 +14,6 @@ export default function App() {
   const [pokemonCart, setPokemonCart] = useState([]);
   const [offset, setOffset] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0)
-  const [isShowModal, setIsShowModal] = useState(false);
   const [showModalState, setShowModalState] = useState(false);  
   const limit = 6;
 
@@ -21,24 +21,6 @@ export default function App() {
     loadPokemon(limit, offset);
   }, []);
 
-  const checkScrollTop = () => {
-    if (!isShowModal && window.pageYOffset > 100) {
-      setIsShowModal(true);
-    } else if (isShowModal && window.pageYOffset <= 100) {
-      setIsShowModal(false);
-    }
-  };
-
-  const scrollTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
-  window.addEventListener("scroll", checkScrollTop);
-
-  function showModal() {
-    if (showModalState === true)
-      return (<Modal hideModal={() => {hideModal()}}/>);
-  }
   return (
     <>
       <Header pokemonSearchName={(pokemon) => {
@@ -61,12 +43,7 @@ export default function App() {
         <S.button onClick={() => loadPokemon(limit, offset)}>VER MAIS </S.button>
       </S.divButton>
 
-      <S.scrollTop>
-        <S.scrollTopIcone
-          onClick={scrollTop}
-          style={{ display: isShowModal ? "flex" : "none" }}
-        />
-      </S.scrollTop>
+      <ScrollTop />
       {showModal()}
     </>
   );
@@ -88,6 +65,11 @@ export default function App() {
     }} 
         pokemon={pokemonCurrent} key={index} />;
     });
+  }
+
+  function showModal() {
+    if (showModalState === true)
+      return (<Modal hideModal={() => {hideModal()}}/>);
   }
 
   function endShop() {
