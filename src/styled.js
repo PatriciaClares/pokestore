@@ -1,12 +1,15 @@
 import styled from 'styled-components'
-import { FaArrowUp } from 'react-icons/fa'
 
 export const divMap = styled.div`
     display:flex;
     flex-wrap: wrap-reverse;
-    justify-content: space-around;
+    justify-content: center;
     margin: 10px 0 ;
     align-items: end;
+    @media(min-width:1125px){
+        justify-content: flex-start
+    }
+
 `
 
 export const divCards = styled.div`

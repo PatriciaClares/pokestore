@@ -7,6 +7,13 @@ export const containerCart = styled.div`
     flex-direction: column;
     margin-bottom: 10px;
     border-radius: 10px;
+    @media(min-width:1125px){
+        position: fixed;
+        right: 0;
+        margin: 30px ;
+        margin-top: 0   
+    }
+    
 `
 
 export const p = styled.p`
