@@ -1,36 +1,31 @@
 import React, { useState, useEffect } from "react";
 import * as S from "./styled.js";
 
-export default function ShoppingCart({ pokemonCart, totalPrice }) {
-
-  useEffect(() => {
-
-    if (pokemonCart) {
-      pokemonCart.forEach((element) => {
-        totalPrice(element.order)
-      });
-    }
-  }, [pokemonCart]);
+export default function ShoppingCart({ pokemonCart, totalPrice, endShop }) {
 
   return (
-    <>
-      <div style={{display: 'flex', flexDirection: 'column',marginBottom:'10px'}}>
+    <S.containerCart>
+      <S.title>CARRINHO DE COMPRAS</S.title>
+      <S.listShoppingCart>
         {pokemonCart.map((pokemonCurrent, index) => {
           return (
-            <div
-              style={{ display: "flex", justifyContent: "space-between", alignItems:'center', padding:'0 20px' }}
-              key={index}
-            >
-                <div style={{display: 'flex', alignItems:'center'}}>
-                    <img src={pokemonCurrent.sprites.front_shiny} alt="Avatar" style={{width:'50px'}} />
+            <S.listItem
+              key={index}>
+                <S.info>
+                    <S.img src={pokemonCurrent.sprites.front_shiny} alt="Avatar" />
                     <p>{pokemonCurrent.name}</p>
                     
-                </div>
+                </S.info>
               <p>R$ {pokemonCurrent.order}</p>
-            </div>
+            </S.listItem>
           );
         })}
-      </div>
-    </>
+      </S.listShoppingCart>
+      <S.total>
+            <h2>Total:</h2>
+            <strong>R$ {totalPrice}</strong>
+      </S.total>
+      <S.button onClick={() => endShop()}>FINALIZAR COMPRA</S.button>
+    </S.containerCart>
   );
 }

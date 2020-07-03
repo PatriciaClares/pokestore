@@ -18,10 +18,7 @@ export const divCards = styled.div`
 `
 
 export const shoppingCart = styled.div`
-    overflow-Y: scroll;
-    scrollbar-color: yellow;
-    max-width:300px;
-    max-height:150px;
+
 `
 export const button = styled.button`
     width:100px;
