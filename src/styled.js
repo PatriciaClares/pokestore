@@ -1,5 +1,11 @@
 import styled from 'styled-components'
 
+export const container = styled.div`
+    background-color: rgb(248, 248, 248);
+
+`
+
+
 export const divMap = styled.div`
     display:flex;
     flex-wrap: wrap-reverse;

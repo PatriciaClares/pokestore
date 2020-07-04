@@ -15,14 +15,14 @@ export default function App() {
   const [offset, setOffset] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0)
   const [showModalState, setShowModalState] = useState(false);  
-  const limit = 6;
+  const limit = 12;
 
   useEffect(() => {
     loadPokemon(limit, offset);
   }, []);
 
   return (
-    <>
+    <S.container>
       <Header pokemonSearchName={(pokemon) => {
         setOffset(0)
         setPokemonArray([pokemon])}}
@@ -46,7 +46,7 @@ export default function App() {
 
       <ScrollTop />
       {showModal()}
-    </>
+    </S.container>
   );
 
   async function loadPokemon(limit, offset) {

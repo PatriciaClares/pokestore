@@ -29,7 +29,7 @@ export const title = styled.h2`
     display: flex;
     justify-content: center;
     padding: 5px;
-`
+    text-shadow: rgba(0, 0, 0, 0.15) 1.5px 1.5px 2px;`
 
 export const listShoppingCart = styled.div`
     overflow-Y: scroll;
@@ -49,6 +49,7 @@ export const info = styled.div`
     align-items: center;
 `
 export const closeIcon = styled(MdClose)`
+    margin-left: 2px;
     color: white;
     background-color: #e64c3c;
     cursor: pointer;

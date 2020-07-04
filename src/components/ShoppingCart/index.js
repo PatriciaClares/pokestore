@@ -1,5 +1,6 @@
 import React from "react";
 import * as S from "./styled.js";
+import { divCard } from "../Card/styled.js";
 
 export default function ShoppingCart({removeStatePokemon, pokemonCart, totalPrice, endShop }) {
 
@@ -16,15 +17,17 @@ export default function ShoppingCart({removeStatePokemon, pokemonCart, totalPric
                     <p>{pokemonCurrent.name}</p>
                     
                 </S.info>
-              <p>R$ {pokemonCurrent.order}</p>
-              <S.closeIcon onClick={() => removePokemon(pokemonCurrent)}/>
+                <div>
+                  <strong>R${pokemonCurrent.order}</strong>
+                  <S.closeIcon onClick={() => removePokemon(pokemonCurrent)}/>
+                </div>
             </S.listItem>
           );
         }): <S.p>Carrinho vazio :(</S.p>}
       </S.listShoppingCart>
       <S.total>
             <h2>Total:</h2>
-            <strong>R$ {totalPrice? totalPrice : 0}</strong>
+            <strong>R${totalPrice? totalPrice : 0}</strong>
       </S.total>
       <S.button onClick={() => endShop()}>FINALIZAR COMPRA</S.button>
     </S.containerCart>

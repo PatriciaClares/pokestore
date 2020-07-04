@@ -2,22 +2,27 @@ import styled from 'styled-components'
 import { MdAddShoppingCart } from 'react-icons/md'
 
 export const divCard = styled.div`
-    box-shadow: 0 4px 8px 0 rgba(230,0,0,0.2);
     transition: 0.3s;
     margin: 0px 10px 20px 10px;
-    width:150px
+    width:150px;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+
 `
 export const imgCard = styled.img`
 `
 
 export const cardDescription = styled.div`
     display:flex;
-    flex-direction: column;
-    justify-content:center;
-    align-items:center
+    font-size: 10px;
+    flex-direction: column-reverse;
+    align-items: center
 `
 export const price = styled.strong`
-    font-style: italic
+    font-style: italic;
+    font-size: 15px;
+    color: red;
+    margin: 3px;
 `
 
 export const cardBody = styled.div`
@@ -40,11 +45,13 @@ export const cardButton = styled.button`
     border: none;
     color: white;
     cursor: pointer;
+    border-radius: 10px;
 
     &:hover{
         background-color: red
     }
 `
 export const name = styled.strong`
-    font-style:oblique
+    font-style:oblique;
+    font-size: 15px
 `

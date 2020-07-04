@@ -22,7 +22,7 @@ export default function Card({pokemon, pokemonCart}) {
                     <S.imgCard src={pokemonURLImage} alt="Avatar" style={{width:'100%'}} />
                     <S.cardBody>
                         <S.cardDescription>
-                            <S.price>R$ {currentPokemon.order}</S.price>
+                            <S.price>R${currentPokemon.order}</S.price>
                             <S.name>{currentPokemon.name}</S.name>
                         </S.cardDescription>
                         <S.cardButton onClick={() => pokemonCart(currentPokemon)}>Adicionar <S.cartIcon /></S.cardButton> 
