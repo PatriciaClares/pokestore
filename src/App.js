@@ -45,7 +45,7 @@ export default function App() {
       </S.divButton>
 
       <ScrollTop />
-      {showModal()}
+      {isShowModal()}
     </S.container>
   );
 
@@ -67,9 +67,9 @@ export default function App() {
     });
   }
 
-  function showModal() {
+  function isShowModal() {
     if (showModalState === true)
-      return (<Modal hideModal={() => {hideModal()}}/>);
+      return (<Modal hideModal={() => {setShowModalState(false)}}/>);
   }
 
   function endShop() {
@@ -80,17 +80,13 @@ export default function App() {
     setShowModalState(true)
   }
 
-  function hideModal(){
-    setShowModalState(false);
-  }
-
   function sumPriceTotal(value){
     localStorage.setItem('totalPrice', (parseInt(totalPrice) + value))
     setTotalPrice(savedTotalPrice())
   }
 
   function subTotalPrice(value){
-    localStorage.setItem('totalPrice', totalPrice - value)
+    localStorage.setItem('totalPrice', savedTotalPrice() - value)
     setTotalPrice(savedTotalPrice())
   }
 
