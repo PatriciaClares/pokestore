@@ -2,6 +2,8 @@ import styled from  'styled-components'
 import { FiGithub } from "react-icons/fi";
 
 export const Header = styled.div`
+    position: sticky;
+    top: 0px;
     padding: 10px 0 10px 10px;
     display: flex;
     justify-content: space-around;
@@ -11,7 +13,7 @@ export const Header = styled.div`
 `
 export const divSearch = styled.div`
     display: flex;
-    max-height: 30px
+
 `
 export const fiGithub = styled(FiGithub)`
     width: 40px;
