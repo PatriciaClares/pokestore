@@ -96,7 +96,8 @@ export default function App() {
   }
 
   function savePokemon(pokemon){
-    localStorage.setItem('pokemons', JSON.stringify(pokemonCart.concat(pokemon)))
+    const savedLocalPokemon = savedPokemonCart() || []
+    localStorage.setItem('pokemons', JSON.stringify(savedLocalPokemon.concat(pokemon)))
     setPokemonCart(savedPokemonCart())
   }
 
@@ -107,8 +108,6 @@ export default function App() {
   function removeStatePokemon(pokemon, price){
     
     localStorage.setItem('pokemons', JSON.stringify(pokemon))
-    setPokemonCart(savedPokemonCart())
-    
     subTotalPrice(price)
   }
 
