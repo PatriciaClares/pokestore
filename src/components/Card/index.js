@@ -5,13 +5,14 @@ import * as S from "./styled";
 export default function Card({pokemon, pokemonCart}) {
 
     const [currentPokemon, setCurrentPokemon] = useState([])
-    const [pokemonURLImage, setPokemonURLImage] = useState('');
 
     useEffect(() => {
         async function loadPokemon() {
-                const {name, order, sprites} =  await specficPokemon(pokemon.name).then(result => result)
-                setCurrentPokemon({name,order, sprites})
-                setPokemonURLImage(sprites.front_shiny);
+                const {id, name, order} =  await specficPokemon(pokemon.name).then(result => result)
+                setCurrentPokemon({id,
+                    name,
+                    order, 
+                    image: `https://pokeres.bastionbot.org/images/pokemon/${id}.png`})
         }
             loadPokemon()
     }, [pokemon])
@@ -19,7 +20,7 @@ export default function Card({pokemon, pokemonCart}) {
     return (
            <>
                <S.divCard>
-                    <S.imgCard src={pokemonURLImage} alt="Avatar" style={{width:'100%'}} />
+                    <S.imgCard src={currentPokemon.image} alt="Avatar" style={{width:'80%'}} />
                     <S.cardBody>
                         <S.cardDescription>
                             <S.price>R${currentPokemon.order}</S.price>

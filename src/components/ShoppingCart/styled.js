@@ -41,7 +41,8 @@ export const listItem = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
+    padding: 10px 20px;
+    border: 1px groove  rgba(0, 0, 0, 0.15); 
 `
 
 export const info = styled.div`
@@ -56,7 +57,8 @@ export const closeIcon = styled(MdClose)`
 `
 
 export const img = styled.img`
-    width: 50px;
+    width: 35px;
+    margin-right: 3px
 `
 export const total = styled.div`
     display: flex,;

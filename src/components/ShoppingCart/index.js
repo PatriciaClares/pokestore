@@ -13,7 +13,7 @@ export default function ShoppingCart({removeStatePokemon, pokemonCart, totalPric
             <S.listItem
               key={index}>
                 <S.info>
-                    <S.img src={pokemonCurrent.sprites.front_shiny} alt="Avatar" />
+                    <S.img src={pokemonCurrent.image} alt="Avatar" />
                     <p>{pokemonCurrent.name}</p>
                     
                 </S.info>
